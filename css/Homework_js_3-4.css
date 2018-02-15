@@ -4,15 +4,15 @@ h4 {
 }
 
 li {
-    margin: 5px 0 0 40px;
-    list-style: none;
+    margin: 5px 0 0 0;
+    /*list-style: none;*/
 }
 
-button.btn-primary {
+.centered-button.btn {
     margin: 20px auto;
     display: block;
 }
 
-input.form-check-input {
+.test-answer-checkbox.form-check-input {
     margin-top: 0.4rem;
 }
