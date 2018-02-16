@@ -11,34 +11,26 @@ var oTest = {
    * Method that creates the questions of the test
    */
   createQuestions: function () {
-    var oTestQuestions = document.createElement('ol');
-    document.body.appendChild(oTestQuestions);
+    var oTestQuestionsList = document.createElement('ol');
+    document.body.appendChild(oTestQuestionsList);
     for (var i = 1; i <= 3; i++) {
       var oTestQuestionsItem = document.createElement('li');
       oTestQuestionsItem.innerHTML = 'Вопрос №' + i;
-      oTestQuestions.appendChild(oTestQuestionsItem);
+      oTestQuestionsList.appendChild(oTestQuestionsItem);
+      this.createAnswers(oTestQuestionsItem, i);
     }
   },
   /**
    * Method that creates the answers of the test with checkboxes
    */
-  createAnswers: function () {
-    var aQuestions = document.getElementsByTagName('li');
-    for (var i = 0; i < aQuestions.length; i++) {
-      var oQuestion = aQuestions[i];
-      var oAnswersList = document.createElement('ul');
-      oQuestion.appendChild(oAnswersList);
-    }
-
-    var aAnswers = document.getElementsByTagName('ul');
-    console.log(aAnswers);
-    for (i = 0; i < aAnswers.length; i++) {
+  createAnswers: function (oSingleQuestion, sSingleAnswerId) {
+      var oTestAnswersList = document.createElement('ul');
+      oSingleQuestion.appendChild(oTestAnswersList);
       for (var k = 0; k < 3; k++) {
-        var oAnswer = aAnswers[i];
         var oTestAnswer = document.createElement('li');
-        oAnswer.appendChild(oTestAnswer);
+        oTestAnswersList.appendChild(oTestAnswer);
 
-        var sTestAnswerId = 'test_answer' + i + k;
+        var sTestAnswerId = 'answerId' + k + sSingleAnswerId;
 
         var oTestAnswerCheckbox = document.createElement('input');
         oTestAnswerCheckbox.setAttribute('type', 'checkbox');
@@ -51,7 +43,7 @@ var oTest = {
         oTestAnswerText.setAttribute('for', sTestAnswerId);
         oTestAnswer.appendChild(oTestAnswerText);
       }
-    }
+    // }
   },
   /**
    * Method that creates <button> tag - the button that submits the answers for the test
@@ -68,7 +60,6 @@ var oTest = {
   createTest: function () {
     this.createTitle();
     this.createQuestions();
-    this.createAnswers();
     this.createButton();
   }
 };
