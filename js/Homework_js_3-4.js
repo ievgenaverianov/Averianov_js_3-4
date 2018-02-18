@@ -23,14 +23,14 @@ var oTest = {
   /**
    * Method that creates the answers of the test with checkboxes
    */
-  createAnswers: function (oSingleQuestion, sSingleAnswerId) {
+  createAnswers: function (oSingleQuestion, sQuestionId) {
       var oTestAnswersList = document.createElement('ul');
       oSingleQuestion.appendChild(oTestAnswersList);
       for (var k = 0; k < 3; k++) {
         var oTestAnswer = document.createElement('li');
         oTestAnswersList.appendChild(oTestAnswer);
 
-        var sTestAnswerId = 'answerId' + k + sSingleAnswerId;
+        var sTestAnswerId = 'answerId' + k + sQuestionId;
 
         var oTestAnswerCheckbox = document.createElement('input');
         oTestAnswerCheckbox.setAttribute('type', 'checkbox');
